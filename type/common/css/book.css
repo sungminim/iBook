@@ -1,6 +1,5 @@
 @charset "utf-8";
 .bookSec {max-width:100%;margin:0 auto;padding:50px 0;box-sizing:border-box;}
-.bookSec.typeZoom .rangesliderOwl {display:none;}
 .bookSec.typeZoom .owl-carousel .owl-stage-outer {overflow:visible;}
 
 .owl-carousel .owl-item img {max-height:700px;width: auto !important;margin: 0 auto;box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);cursor: pointer;transition: 0.3s all;transform:scale(1)}
@@ -35,7 +34,7 @@
 .irs--flat .irs-handle {width:100px;}
 .irs--flat .irs-handle>i:first-child {width:100%;left:0;}
 
-.owl-carousel .item {padding:30px 100px;text-align:center;color:#FFFFFF;font-size:50px;}
+.owl-carousel .item {padding:30px 100px;text-align:center;color:#FFFFFF;font-size:50px;z-index:10;}
 .owl-nav button {position:absolute;display:block;width:42px;height:71px;font-size:1px;text-indent:-9999px;;transition:.3s all;}
 .owl-nav button.owl-next {right:30px;top:50%;margin-top:-35.5px;background:url(../../KOR_A/go_next.png) no-repeat center !important;}
 .owl-nav button.owl-next:hover {background:url(../../KOR_A/go_next_o.png) no-repeat center !important;}
@@ -44,28 +43,37 @@
 .owl-nav button.owl-prev.disabled {display:none;}
 .owl-nav button.owl-next.disabled {display:none;}
 
-.rangesliderOwl {position:absolute;;bottom:20px;left:50%;width:100%;max-width:400px;display:table;margin-left:-200px;;}
+.rangesliderOwl {position:relative;display:table;bottom:0;left:0;width:100%;max-width:400px;margin-left:0;margin:0 auto;z-index:0;}
+.rangesliderOwl.fixed {position:absolute;bottom:20px;left:50%;margin-left:-200px;;}
 .rangesliderOwl .slider-counter {text-align:center;}
 
 .num {text-align:center;font-weight:500}
 
+@media all and (max-width:1041px) {
+    .rangesliderOwl {position:relative;left:0;bottom:0;max-width:300px;margin:0 auto;}
+}
+
 @media all and (max-width:768px) {
     .bookSec {padding:25px 0;}
-    .owl-carousel .owl-item img.zoomIn {width:100% !important;}
 
     .owl-carousel .item {padding:30px 0;}
     .owl-nav button {height:45px;margin-top:-22.5px;}
     .owl-nav button.owl-next {width:25px;background-size:20px auto !important;}
-    .owl-nav button.owl-next:hover {background-size:20px auto !important;}
+    .owl-nav button.owl-next:hover {background:url(../../KOR_A/go_next.png) no-repeat center !important;background-size:20px auto !important;}
     .owl-nav button.owl-prev {width:25px;background-size:20px auto !important;}
-    .owl-nav button.owl-prev:hover {background-size:20px auto !important;}
+    .owl-nav button.owl-prev:hover {background:url(../../KOR_A/go_prev.png) no-repeat center !important;background-size:20px auto !important;}
     .owl-carousel .item {padding:30px 0px;}
     .owl-nav button.owl-next {top:15px;right:10px;}
     .owl-nav button.owl-prev {top:15px;left:auto;right:50px;}
 
-    .rangesliderOwl {position:relative;left:0;bottom:0;max-width:300px;margin:0 auto;}
-
     .irs {height:40px;}
     .irs--flat .irs-handle {width:60px;height:15px;}
     .irs--flat .irs-line {height:9px;}
+
+    .bookSec.typeZoom .rangesliderOwl {display:block;}
+    .bookSec.typeZoom .owl-carousel .owl-stage-outer {overflow:hidden;}
+
+    .owl-carousel .owl-item img.zoomIn {transform:scale(1)}
+    .owl-carousel .owl-item {cursor:inherit;touch-action: auto !important;}
+    .owl-carousel .owl-item img {cursor:inherit;touch-action: auto !important;}
 }
