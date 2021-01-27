@@ -3,8 +3,8 @@ $(function(){
 
     owl.on("initialized.owl.carousel", function (event) {
         
-        var itemCount = event.item.count; // 슬라이더 총 갯수
-        var size = event.page.size; // 현재 슬라이더 순서
+        var itemCount = event.item.count;
+        var size = event.page.size; 
         var dragLength = 100 / (itemCount / size);
         var curItem = event.item.index + 1;
 
